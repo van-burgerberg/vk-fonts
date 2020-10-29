@@ -56,7 +56,7 @@ DELETE_FONT = [
     "del <to_delete>",
     "remove <to_delete>",
     "rm <to_delete>",
-]  # 'font' must be specified
+]  # 'to_delete' must be specified
 
 SET_FORCE_LOWERCASE_STATE = [
     "force lowercase <state>",
