@@ -155,11 +155,11 @@ async def select_font(message: Message, font_id: int) -> NoReturn:
 
 
 @command_handler(config.DELETE_FONT)
-async def delete_font(message: Message, font: str) -> NoReturn:
+async def delete_font(message: Message, to_delete: str) -> NoReturn:
     ids = (
         [font.id for font in await Font.all()]
-        if font == "all"
-        else font.replace(" ", "").split(",")
+        if to_delete == "all"
+        else to_delete.replace(" ", "").split(",")
     )
 
     for font_id in ids:
@@ -174,7 +174,7 @@ async def delete_font(message: Message, font: str) -> NoReturn:
             message, config.FONTS_DELETED.format(font_ids=", ".join(ids))
         )
     else:
-        await send_message(message, config.FONT_DELETED.format(font_id=font))
+        await send_message(message, config.FONT_DELETED.format(font_id=to_delete))
 
 
 @command_handler(config.SET_FORCE_LOWERCASE_STATE)
