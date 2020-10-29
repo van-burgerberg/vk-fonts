@@ -255,11 +255,11 @@ async def on_sending(message: Message) -> NoReturn:
     if (
         (user_state := await get_or_create(UserState))
         and user_state.enabled
-        and (dictionary := ((await Font.get_or_none(id=user_state.font_id)).dictionary))
+        and (font := (await Font.get_or_none(id=user_state.font_id)))
     ):
         await edit_message(
             orig=message,
-            new_text=translate(message.text, dictionary, user_state.force_lowercase),
+            new_text=translate(message.text, font.dictionary, user_state.force_lowercase),
         )
 
 
