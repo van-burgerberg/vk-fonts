@@ -52,10 +52,10 @@ SELECT_FONT = [
 ]  # 'font_id:int' must be specified
 
 DELETE_FONT = [
-    "delete <font>",
-    "del <font>",
-    "remove <font>",
-    "rm <font>",
+    "delete <to_delete>",
+    "del <to_delete>",
+    "remove <to_delete>",
+    "rm <to_delete>",
 ]  # 'font' must be specified
 
 SET_FORCE_LOWERCASE_STATE = [
