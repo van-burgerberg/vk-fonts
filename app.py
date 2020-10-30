@@ -138,6 +138,7 @@ async def reduce_font(message: Message, font_id: int, chars: str) -> NoReturn:
         for char in chars:
             if char in font.dictionary:
                 del font.dictionary[char]
+        await font.save()
         await send_message(message, config.FONT_UPDATED.format(font_id=font_id))
     else:
         await send_message(message, config.FONT_NOT_FOUND.format(font_id=font_id))
