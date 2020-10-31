@@ -134,10 +134,11 @@ async def edit_font(
 
 @command_handler(config.REDUCE_FONT)
 async def reduce_font(message: Message, font_id: int, chars: str) -> NoReturn:
-    if font := Font.get_or_none(id=font_id):
+    if font := await Font.get_or_none(id=font_id):
         for char in chars:
             if char in font.dictionary:
                 del font.dictionary[char]
+        await font.save()
         await send_message(message, config.FONT_UPDATED.format(font_id=font_id))
     else:
         await send_message(message, config.FONT_NOT_FOUND.format(font_id=font_id))
@@ -263,9 +264,9 @@ async def on_sending(message: Message) -> NoReturn:
         )
 
 
-@user.on.event.message_edit()
-async def on_editing(event: UserEvents) -> NoReturn:
-    ...  # TODO: translating on editing
+#  @user.on.event.message_edit()
+#  async def on_editing(event: UserEvents) -> NoReturn:
+#      ...  # TODO: translating on editing
 
 
 if __name__ == "__main__":
