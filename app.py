@@ -8,7 +8,6 @@ from vkbottle import User, Message
 from vkbottle.ext import Middleware
 from typing import NoReturn, List, Union, Callable
 from vkbottle.types.responses.messages import Edit
-from vkbottle.types.events import UserEvents
 
 
 load_dotenv()
