@@ -3,7 +3,7 @@ BOT_INDICATOR = '{"vk-fonts":"self"}'
 
 INVALID_DICTIONARY = "❌  Это чё за хуйня?"
 
-INVALID_FORCE_LOWERCASE_STATE = "❌  Это чё за хуйня?"
+INVALID_FORCE_LOWERCASE_STATE = "❌  Это чё за хуйня?"  # get 'state'
 FORCE_LOWERCASE_STATE_SELECTED = (
     "✅  Установлено новое значение 'force lowercase': {state}"  # get 'state'
 )
@@ -67,6 +67,7 @@ SET_FORCE_LOWERCASE_STATE = [
 VIEW_FONT = [
     "view <font_id:int>",
     "view <font_id:int> <text>",
+    "view <font_id:int>\n<text>",
 ]  # 'font_id:int' and optionally 'text' must be specified
 
 GET_FONTS = ["list", "fonts"]
