@@ -255,7 +255,7 @@ async def on_sending(message: Message) -> NoReturn:
     if (
         (user_state := await get_or_create(UserState))
         and user_state.enabled
-        and (font := (await Font.get_or_none(id=user_state.font_id)))
+        and (font := await Font.get_or_none(id=user_state.font_id))
     ):
         await edit_message(
             orig=message,
